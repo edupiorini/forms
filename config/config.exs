@@ -10,6 +10,11 @@ use Mix.Config
 config :forms,
   ecto_repos: [Forms.Repo]
 
+config :forms, Forms.Repo,
+  # configuração para gerar uuid nessas chaves
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :forms, FormsWeb.Endpoint,
   url: [host: "localhost"],
