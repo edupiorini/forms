@@ -15,8 +15,8 @@ defmodule Forms.Repo.Migrations.CreatePessoaJuridicaTable do
       timestamps()
     end
 
-    create unique_index(:pessoa_fisica, [:cnpj])
-    create unique_index(:pessoa_fisica,  [:telefone])
-    create unique_index(:pessoa_fisica,  [:razao_social])
+    create unique_index(:pessoa_juridica, [:cnpj])
+    create unique_index(:pessoa_juridica,  [:telefone])
+    create unique_index(:pessoa_juridica,  [:razao_social])
   end
 end
