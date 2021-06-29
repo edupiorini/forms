@@ -22,7 +22,7 @@ defmodule Forms.PessoaFisica do
 
   def changeset(struct \\ %__MODULE__{}, params) do
     struct
-    |> cast(params, @required_params)
+    |> cast(params, @required_params ++ [:email])
     |> validate_required(@required_params)
     |> validate_length(:nome, min: 2)
     |> validate_length(:endereco, min: 6)
