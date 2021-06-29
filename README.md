@@ -1,5 +1,18 @@
 # Forms
 
+This is a form API for clients and companies registration created for [Super Toldos](www.supertoldos.com.br)
+
+This API should:
+  * Safely register clients
+  * Safely register companies
+  * Preverse any sensitive data and protect it
+  * Be used only with authorization under the company's rules
+
+
+
+
+  
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
