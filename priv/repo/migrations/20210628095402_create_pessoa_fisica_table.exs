@@ -15,5 +15,6 @@ defmodule Forms.Repo.Migrations.CreatePessoaFisicaTable do
     end
 
     create unique_index(:pessoa_fisica, [:cpf])
+    create unique_index(:pessoa_fisica,  [:telefone])
   end
 end

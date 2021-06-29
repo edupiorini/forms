@@ -28,8 +28,9 @@ defmodule Forms.PessoaFisica do
     |> validate_length(:endereco, min: 6)
     |> validate_length(:cidade, min: 2)
     |> validate_length(:estado, min: 2)
-    |> validate_length(:telefone, min: 10)
+    |> validate_length(:telefone, min: 1)
     |> validate_format(:email, ~r/@/)
     |> unique_constraint([:cpf])
+    |> unique_constraint([:telefone])
   end
 end
