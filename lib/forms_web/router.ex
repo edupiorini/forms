@@ -7,6 +7,8 @@ defmodule FormsWeb.Router do
 
   scope "/api", FormsWeb do
     pipe_through :api
+
+    post "/pessoa_fisica", PessoaFisicaController, :create
   end
 
   # Enables LiveDashboard only for development
