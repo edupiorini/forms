@@ -6,7 +6,7 @@ defmodule Forms.PessoaFisica do
 
   @required_params [:nome, :endereco, :estado, :telefone, :cpf, :cidade]
 
-  @derive {Jason.Encoder, only: @required_params}
+  @derive {Jason.Encoder, only: @required_params ++ [:id]}
 
   schema "pessoa_fisica" do
     field :nome, :string
