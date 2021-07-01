@@ -3,6 +3,8 @@ defmodule FormsWeb.PessoaFisicaController do
 
   alias Forms.PessoaFisica
 
+  action_fallback FormsWeb.FallbackController
+
   def create(conn, params) do
     with {:ok, %PessoaFisica{} = cliente} <- Forms.create_pessoa_fisica(params) do
       conn
