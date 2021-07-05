@@ -1,4 +1,4 @@
-defmodule Forms.Clientes.PessoaJuridica.Create do
+defmodule Forms.PessoaJuridica.Create do
   alias Forms.{Error, PessoaJuridica, Repo}
 
   def call(params) do
