@@ -9,4 +9,10 @@ defmodule FormsWeb.PessoaFisicaView do
       cliente: cliente
     }
   end
+
+  def render("pessoa_fisica.json", %{cliente: %PessoaFisica{} = cliente}) do
+    %{
+      cliente: cliente
+    }
+  end
 end
