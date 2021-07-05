@@ -9,6 +9,8 @@ defmodule FormsWeb.Router do
     pipe_through :api
 
     post "/pessoa_fisica", PessoaFisicaController, :create
+
+    get "/pessoa_fisica/:id", PessoaFisicaController, :show
   end
 
   # Enables LiveDashboard only for development
