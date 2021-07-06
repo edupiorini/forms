@@ -15,7 +15,7 @@ defmodule Forms.PessoaJuridica do
     :cidade
   ]
 
-  @derive {Jason.Encoder, only: @required_params}
+  @derive {Jason.Encoder, only: @required_params ++ [:id]}
 
   schema "pessoa_juridica" do
     field :nome_fantasia, :string
