@@ -1,6 +1,6 @@
-defmodule Forms.PessoaFisica.Update do
+defmodule Forms.PessoaJuridica.Update do
   alias Ecto.UUID
-  alias Forms.PessoaFisica
+  alias Forms.PessoaJuridica
   alias Forms.Error
   alias Forms.Repo
 
@@ -12,7 +12,7 @@ defmodule Forms.PessoaFisica.Update do
   end
 
   defp update(%{"id" => id} = params) do
-    case Repo.get(PessoaFisica, id) do
+    case Repo.get(PessoaJuridica, id) do
       nil -> {:erro, Error.build_user_not_found_error()}
       cliente -> do_update(cliente, params)
     end
@@ -20,7 +20,7 @@ defmodule Forms.PessoaFisica.Update do
 
   defp do_update(client, params) do
     client
-    |> PessoaFisica.changeset(params)
+    |> PessoaJuridica.changeset(params)
     |> Repo.update()
   end
 end
