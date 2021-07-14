@@ -3,6 +3,8 @@ defmodule Forms do
   alias Forms.PessoaFisica.Get, as: GetPessoaFisica
   alias Forms.PessoaJuridica.Create, as: CreatePessoaJuridica
   alias Forms.PessoaJuridica.Get, as: GetPessoaJuridica
+  alias Forms.PessoaFisica.Update, as: UpdatePessoaFisica
+  alias Forms.PessoaFisica.Update, as: UpdatePessoaJuridica
 
   @moduledoc """
   Forms keeps the contexts that define your domain
@@ -16,4 +18,6 @@ defmodule Forms do
   defdelegate create_pessoa_juridica(params), to: CreatePessoaJuridica, as: :call
   defdelegate get_pessoa_fisica(id), to: GetPessoaFisica, as: :call
   defdelegate get_pessoa_juridica(id), to: GetPessoaJuridica, as: :call
+  defdelegate update_pessoa_fisica(params), to: UpdatePessoaFisica, as: :call
+  defdelegate update_pessoa_juridica(params), to: UpdatePessoaJuridica, as: :call
 end

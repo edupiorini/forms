@@ -2,17 +2,19 @@ defmodule FormsWeb.Router do
   use FormsWeb, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/api", FormsWeb do
-    pipe_through :api
+    pipe_through(:api)
 
-    post "/pessoa_fisica", PessoaFisicaController, :create
-    post "/pessoa_juridica", PessoaJuridicaController, :create
+    resources("/pessoa_fisica", PessoaFisicaController, except: [:new, :edit])
+    resources("/pessoa_juridica", PessoaJuridicaController, except: [:new, :edit])
+    #  post "/pessoa_fisica", PessoaFisicaController, :create
+    #  post "/pessoa_juridica", PessoaJuridicaController, :create
 
-    get "/pessoa_fisica/:id", PessoaFisicaController, :show
-    get "/pessoa_juridica/:id", PessoaJuridicaController, :show
+    # get("/pessoa_fisica/:id", PessoaFisicaController, :show)
+    # get("/pessoa_juridica/:id", PessoaJuridicaController, :show)
   end
 
   # Enables LiveDashboard only for development
@@ -26,8 +28,8 @@ defmodule FormsWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through [:fetch_session, :protect_from_forgery]
-      live_dashboard "/dashboard", metrics: FormsWeb.Telemetry
+      pipe_through([:fetch_session, :protect_from_forgery])
+      live_dashboard("/dashboard", metrics: FormsWeb.Telemetry)
     end
   end
 end
