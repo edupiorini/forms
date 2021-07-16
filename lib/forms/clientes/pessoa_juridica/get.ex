@@ -4,7 +4,7 @@ defmodule Forms.PessoaJuridica.Get do
 
   def call(id) do
     case UUID.cast(id) do
-      :error -> {:error, "Formato de Id inválido"}
+      :error -> {:error, Error.build_invalid_id()}
       {:ok, id} -> get(id)
     end
   end
