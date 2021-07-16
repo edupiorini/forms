@@ -6,14 +6,14 @@ defmodule Forms.PessoaFisica.Update do
 
   def call(%{"id" => id} = params) do
     case UUID.cast(id) do
-      :error -> {:erro, "ID inválido!"}
+      :error -> {:error, Error.build_invalid_id()}
       {:ok, _uuid} -> update(params)
     end
   end
 
   defp update(%{"id" => id} = params) do
     case Repo.get(PessoaFisica, id) do
-      nil -> {:erro, Error.build_user_not_found_error()}
+      nil -> {:error, Error.build_user_not_found_error()}
       cliente -> do_update(cliente, params)
     end
   end

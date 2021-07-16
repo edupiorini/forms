@@ -4,7 +4,7 @@ defmodule Forms.PessoaFisica.Get do
 
   def call(id) do
     case UUID.cast(id) do
-      :error -> {:error, "Formato de Id inválido"}
+      :error -> {:error, Error.build_invalid_id()}
       {:ok, id} -> get(id)
     end
   end
@@ -12,7 +12,7 @@ defmodule Forms.PessoaFisica.Get do
   defp get(id) do
     case Repo.get(PessoaFisica, id) do
       %PessoaFisica{} = cliente -> {:ok, cliente}
-      nil -> Error.build_user_not_found_error()
+      nil -> {:error, Error.build_user_not_found_error()}
     end
   end
 end
