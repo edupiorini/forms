@@ -12,5 +12,7 @@ defmodule Forms.Error do
     }
   end
 
-  def build_user_not_found_error, do: build(:not_found, "User not found")
+  def build_user_not_found_error, do: build(:not_found, "Usuário não encontrado!")
+
+  def build_invalid_id, do: build(:bad_request, "ID Inválido!")
 end
