@@ -4,7 +4,7 @@ defmodule Forms do
   alias Forms.PessoaJuridica.Create, as: CreatePessoaJuridica
   alias Forms.PessoaJuridica.Get, as: GetPessoaJuridica
   alias Forms.PessoaFisica.Update, as: UpdatePessoaFisica
-  alias Forms.PessoaFisica.Update, as: UpdatePessoaJuridica
+  alias Forms.PessoaJuridica.Update, as: UpdatePessoaJuridica
 
   @moduledoc """
   Forms keeps the contexts that define your domain
