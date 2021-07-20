@@ -15,4 +15,10 @@ defmodule FormsWeb.ClienteView do
       cliente: cliente
     }
   end
+
+  def render("delete.json", %{cliente: %{} = _cliente}) do
+    %{
+      mensagem: "Excluído com sucesso!"
+    }
+  end
 end

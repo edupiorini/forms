@@ -32,4 +32,13 @@ defmodule FormsWeb.PessoaFisicaController do
       |> render("cliente.json", cliente: cliente)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    with %PessoaFisica{} = cliente <- Forms.delete_pessoa_fisica(id) do
+      conn
+      |> put_status(:ok)
+      |> put_view(ClienteView)
+      |> render("delete.json", cliente: cliente)
+    end
+  end
 end
