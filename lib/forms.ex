@@ -6,6 +6,7 @@ defmodule Forms do
   alias Forms.PessoaFisica.Update, as: UpdatePessoaFisica
   alias Forms.PessoaJuridica.Update, as: UpdatePessoaJuridica
   alias Forms.PessoaFisica.Delete, as: DeletePessoaFisica
+  alias Forms.PessoaJuridica.Delete, as: DeletePessoaJuridica
 
   @moduledoc """
   Forms keeps the contexts that define your domain
@@ -22,4 +23,5 @@ defmodule Forms do
   defdelegate update_pessoa_fisica(params), to: UpdatePessoaFisica, as: :call
   defdelegate update_pessoa_juridica(params), to: UpdatePessoaJuridica, as: :call
   defdelegate delete_pessoa_fisica(id), to: DeletePessoaFisica, as: :call
+  defdelegate delete_pessoa_juridica(id), to: DeletePessoaJuridica, as: :call
 end
