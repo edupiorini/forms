@@ -3,8 +3,8 @@ defmodule FormsTest.PessoaFisica do
 
   import FormsTest.Factory
 
-  alias Forms.PessoaFisica
   alias Ecto.Changeset
+  alias Forms.PessoaFisica
 
   describe "changeset/2" do
     setup do
