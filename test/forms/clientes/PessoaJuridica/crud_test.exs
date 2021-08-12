@@ -4,7 +4,7 @@ defmodule FormsTest.CRUD do
   import FormsTest.Factory
 
   alias Forms.{Error, PessoaJuridica}
-  alias Forms.PessoaJuridica.{Create, Get, Update}
+  alias Forms.PessoaJuridica.{Create, Delete, Get, Update}
 
   setup_all do
     cliente = build(:pjuridica_params)
@@ -42,7 +42,8 @@ defmodule FormsTest.CRUD do
 
       response = Get.call(unexitent_id)
 
-      expected_response = %Error{result: "Usuário não encontrado!", status: :not_found}
+      expected_response =
+        {:error, %Forms.Error{result: "Usuário não encontrado!", status: :not_found}}
 
       assert response == expected_response
     end
@@ -88,6 +89,36 @@ defmodule FormsTest.CRUD do
       response = Update.call(%{"id" => invalid_id, "endereco" => "Não vai dar certo"})
 
       assert response == {:error, %Forms.Error{result: "ID Inválido!", status: :bad_request}}
+    end
+  end
+
+  describe "Delete.call/1" do
+    test "Returns not found when Get.call/1 is invoked after function is executed", %{
+      cliente: cliente
+    } do
+      {:ok, %PessoaJuridica{id: id}} = Create.call(cliente)
+
+      response = Delete.call(id)
+
+      assert %PessoaJuridica{id: _id} = response
+    end
+
+    test "Returns an error when invalid id is given" do
+      invalid_id = "c048e048-a7ec-4a86-b76f-d681a60a43a9"
+
+      response = Delete.call(invalid_id)
+
+      assert response ==
+               {:error, %Forms.Error{result: "Usuário não encontrado!", status: :not_found}}
+    end
+
+    test "Returns an error when invalid format is given" do
+      invalid_id = "c048e04"
+
+      response = Delete.call(invalid_id)
+
+      assert response ==
+               {:error, %Forms.Error{result: "ID Inválido!", status: :bad_request}}
     end
   end
 end
