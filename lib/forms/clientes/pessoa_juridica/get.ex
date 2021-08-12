@@ -12,7 +12,7 @@ defmodule Forms.PessoaJuridica.Get do
   defp get(id) do
     case Repo.get(PessoaJuridica, id) do
       %PessoaJuridica{} = cliente -> {:ok, cliente}
-      nil -> Error.build_user_not_found_error()
+      nil -> {:error, Error.build_user_not_found_error()}
     end
   end
 end
