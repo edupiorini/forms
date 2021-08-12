@@ -1,7 +1,7 @@
 defmodule Forms.PessoaJuridica.Update do
   alias Ecto.UUID
-  alias Forms.PessoaJuridica
   alias Forms.Error
+  alias Forms.PessoaJuridica
   alias Forms.Repo
 
   def call(%{"id" => id} = params) do
