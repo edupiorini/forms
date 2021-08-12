@@ -1,4 +1,4 @@
-defmodule FormsTest.CRUD do
+defmodule FormsTest.PessoaJuridica.CRUD do
   use Forms.DataCase, async: true
 
   import FormsTest.Factory
