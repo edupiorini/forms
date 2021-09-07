@@ -1,12 +1,12 @@
 defmodule Forms do
   alias Forms.PessoaFisica.Create, as: CreatePessoaFisica
-  alias Forms.PessoaFisica.Get, as: GetPessoaFisica
-  alias Forms.PessoaJuridica.Create, as: CreatePessoaJuridica
-  alias Forms.PessoaJuridica.Get, as: GetPessoaJuridica
-  alias Forms.PessoaFisica.Update, as: UpdatePessoaFisica
-  alias Forms.PessoaJuridica.Update, as: UpdatePessoaJuridica
   alias Forms.PessoaFisica.Delete, as: DeletePessoaFisica
+  alias Forms.PessoaFisica.Get, as: GetPessoaFisica
+  alias Forms.PessoaFisica.Update, as: UpdatePessoaFisica
+  alias Forms.PessoaJuridica.Create, as: CreatePessoaJuridica
   alias Forms.PessoaJuridica.Delete, as: DeletePessoaJuridica
+  alias Forms.PessoaJuridica.Get, as: GetPessoaJuridica
+  alias Forms.PessoaJuridica.Update, as: UpdatePessoaJuridica
 
   @moduledoc """
   Forms keeps the contexts that define your domain
